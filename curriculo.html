@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Resume</title>
+	<link rel="stylesheet" href="styles.min.css" />
+</head>
+
+<body>
+	<div id="wrapper" v-bind:class="{ debug: debug, toggled: toggled }">
+		<a href="#" class="btn btn-secondary btn-menu no-print" title="Menu" v-on:click="toggled = !toggled">
+			<i class="fas fa-bars">MENU</i>
+		</a>
+		<div id="sidebar-wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<h1>Currículo Generator</h1>
+					</div>
+					<div class="col-12">
+						<div class="form-group">
+							<label for="photo">Foto</label>
+							<input class="form-control" id="photo" v-model="photo">
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="form-group">
+							<label for="name">Nome</label>
+							<input class="form-control" id="name" v-model="name">
+						</div>
+					</div>
+					<div class="col-12"></div>
+					<div class="col-12"></div>
+					<div class="col-12"></div>
+					<div class="col-12"></div>
+					<div class="col-12"></div>
+					<div class="col-12"></div>
+					<div class="col-12">
+						<button v-on:click="debug = !debug">Debug layout</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container master-container">
+			<!-- Intro -->
+			<div class="row align-items-center no-gutters">
+				<div class="col-8">
+					<div class="about-wrapper">
+						<div class="about">
+							<div class="photo">
+								<img v-bind:src="photo" />
+							</div>
+						</div>
+						<h1 class="name">{{name}}</h1>
+					</div>
+				</div>
+				<div class="col-4">
+					<p>
+						<!-- Alameda Fernão Cardim, 346<br />
+						Jardim Paulista / São Paulo – SP – Brasil<br />
+						CEP 01403-020<br /> -->
+						Phone: +55 (51) 999562090<br />
+						Email: tacito.viero@gmail.com<br />
+					</p>
+				</div>
+			</div>
+			<!-- Objectives -->
+			<div class="row align-items-center">
+				<div class="col-12">
+					<h3 class="title">About Me</h3>
+					<p class="title-p">
+						A computer scientist that likes people and communication. Endlessly curious and
+						excited about learning new things - from computer skills to how the universe functions. I have
+						worked with different environments, architectures, patterns and business models and found my way
+						to efficient solutions for each problem.<br />
+						Entrepreneurial spirit and looking for like-minded companies and people - from startups to corps
+						that have space for intra-entrepreneurship. Looking for a position with diverse teams, in a
+						fast-paced environment, with talents I can both learn from and challenge myself.
+					</p>
+				</div>
+			</div>
+			<!-- Computer skills -->
+			<div class="row align-items-center">
+				<div class="col-12 mb-4">
+					<h3 class="title">Computer Skills</h3>
+					<div class="row">
+						<skill-column-item v-for="column in computerSkills" v-bind:column="column"></skill-column-item>
+					</div>
+					<h4>Other stuff</h4>
+					<div class="row">
+						<div class="col-12">
+							Linux Ubuntu, Linux Raspbian, Linux CentOS, Ruby, WAMP, Wordpress, Magento, PHP, Apache
+							Cordova, EC2, S3, RDS, Lambda, Cloudfront, Cloudflare, npm, Grunt, Bower, Apache jMeter,
+							Selenium, HP Quality Center, Watin, ASP.NET, ADO.NET
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Personal skills -->
+			<div class="row align-items-center">
+				<div class="col-12 mb-4">
+					<h3 class="title">Personal Skills</h3>
+					<div class="row">
+						<skill-column-item v-for="humanSkill in humanSkills" v-bind:column="humanSkill">
+						</skill-column-item>
+					</div>
+				</div>
+			</div>
+			<!-- Experience -->
+			<div class="row align-items-center">
+				<div class="col-12">
+					<div>
+						<h3 class="title">Experience</h3>
+						<div class="timeline">
+							<timeline-item v-for="item in professionalExperiences" v-bind:item="item"></timeline-item>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Education -->
+			<div class="row align-items-center">
+				<div class="col-12">
+					<h3 class="title">Education</h3>
+					<div class="row experience">
+						<div class="col-7">
+							<h3>Pontifical Catholic University of Rio Grande do Sul</h3>
+						</div>
+						<div class="col-5 text-right">
+							<span class="date">2008 - 2014</span>
+						</div>
+						<div class="col-12">
+							<h4>Bachelor in Computer Science</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Activities -->
+			<div class="row align-items-center">
+				<div class="col-12 mb-4">
+					<h3 class="title">Other activities</h3>
+					<div class="row no-gutters">
+						<column-item v-for="activity in activities" v-bind:column="activity"></column-item>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="curriculo.js"></script>
+
+	<!-- Menu Toggle Script -->
+	<script>
+		// document.querySelector("#menu-toggle").addEventListener("click", (e) => {
+		// 	e.preventDefault();
+		// 	document.querySelector("#wrapper").classList.toggle("toggled");
+		// 	document.querySelector("#menu-toggle").classList.toggle("toggled");
+		// });
+
+		// var w = window,
+		// 	d = document,
+		// 	e = d.documentElement,
+		// 	g = d.getElementsByTagName('body')[0],
+		// 	x = w.innerWidth || e.clientWidth || g.clientWidth,
+		// 	y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+		// if (x < 768) document.querySelector("#menu-toggle").click();
+	</script>
+</body>
+
+</html>
