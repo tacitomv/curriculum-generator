@@ -116,10 +116,11 @@ var app = new Vue({
                     { text: 'HTML', percent: 100 },
                     { text: 'CSS', percent: 95 },
                     { text: 'Javascript', percent: 85 },
-                    { text: 'Java', percent: 80 },
                     { text: 'SQL', percent: 70 },
-                    { text: 'Dart', percent: 60 },
-                    { text: 'Python', percent: 50 }
+                    { text: 'Dart', percent: 70 },
+                    { text: 'Java', percent: 60 },
+                    { text: 'Python', percent: 50 },
+                    { text: 'React', percent: 20 }
                 ]
             },
             {
@@ -161,10 +162,10 @@ var app = new Vue({
                     { text: 'Amazon Services', percent: 90 },
                     { text: 'Azure Services', percent: 80 },
                     { text: 'Visual Studio', percent: 80 },
-                    { text: 'terminal', percent: 70 },
                     { text: 'VS Code', percent: 90 },
                     { text: 'Postman', percent: 75 },
                     { text: 'Node', percent: 70 },
+                    { text: 'bash', percent: 70 },
                     { text: 'Selenium', percent: 80 },
                     { text: 'Apache jMeter', percent: 65 }
                 ]
@@ -172,10 +173,17 @@ var app = new Vue({
         ],
         professionalExperiences: [
             {
+                title: 'Ayra Labs',
+                start: 'July/2020',
+                end: 'currently',
+                position: 'Owner',
+                text: `Ayra Labs main focus is to better understand and deliver web experiences to connect people.`
+            },
+            {
                 title: 'Traust.it',
                 start: 'January/2017',
-                end: 'currently',
-                position: 'Owner & Technical Leader',
+                end: 'June/2020',
+                position: 'Founder & CTO',
                 text: `Founder of a small software house focused on developing systems for small and medium local companies
                     Made projects from scratch, maintained legacy code, built third-party integrations and deployed cloud mobile apps
                     Worked closely with client’s multiple internal teams to achieve digital tech transformations
